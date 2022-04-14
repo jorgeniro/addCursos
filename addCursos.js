@@ -6,40 +6,40 @@ class Curso{
     }
 }
 
-function capturar (){
-    
+
+function capturar (){  
     cantidadDeCursos = parseInt(prompt(`Buenos días, cuántos cursos desea cargar hoy?`));
     for (let ordenDeCursos =1; ordenDeCursos <= cantidadDeCursos; ordenDeCursos++) {
-
    
     var nombreCapturar = prompt (`Ingrese nombre del curso numero ${ordenDeCursos}: `);
     var duracionCapturar =  prompt (`Ingrese duración del curso ${nombreCapturar}:`);
     costoCapturar = parseInt(prompt (`Ingrese precio del curso ${nombreCapturar}:`));
     alert (`El curso ${nombreCapturar} con una duración de ${duracionCapturar} y un precio de $${costoCapturar} ha sido cargado con éxito`); 
-
-
-    
     nuevoCurso = new Curso(nombreCapturar, duracionCapturar, costoCapturar);
     console.log(nuevoCurso);
     agregar();
-    }
+    }   
 }
-
 var baseDatos= [];
-function agregar(){
+function agregar(){ 
     baseDatos.push(nuevoCurso);
     console.log(baseDatos);
-   
 };
+
+const yogavinyasa =  new Curso("Yoga Vinyasa", "12 semanas", 120)
+const pilates =  new Curso("Pilates", "40 semanas", 300)
+baseDatos.push(yogavinyasa);
+baseDatos.push(pilates);
 
 capturar()
 alert (`Los ${cantidadDeCursos} cursos han sido cargados con éxito.`);
+
 
 let opcion = prompt("Ingrese 1 para calcular el precio de un curso o Enter para salir")
 
 while (opcion === "1") {
     const costoCapturar =  parseInt(prompt ('Ingrese costo del curso: '));
-    const descuentoCapturar =   parseInt(prompt (`Ingrese el descuento del curso`)); 
+    const descuentoCapturar =   parseInt(prompt (`Ingrese el descuento del curso: `)); 
     suma = costoCapturar-((descuentoCapturar*costoCapturar)/100);   
     
   totalCapturar = alert(`el valor del curso es $${costoCapturar} con un descuento del %${descuentoCapturar} da un total de = $${suma}`);
@@ -53,3 +53,4 @@ while (opcion === "2") {
   var resultado = alert(`El costo del curso es $${suma} el IVA del 21% tiene un valor de $${totalIva} lo que nos da un total de $${total} `);
   opcion = prompt(`Si desea calcular el costo de otro curso, ingrese "1", si desea agregarle el iva (21%) ingresa "2" o pulse Enter para salir`);
 }
+
