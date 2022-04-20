@@ -14,11 +14,16 @@ function capturar (){
     var nombreCapturar = prompt (`Ingrese nombre del curso numero ${ordenDeCursos}: `);
     var duracionCapturar =  prompt (`Ingrese duración del curso ${nombreCapturar}:`);
     costoCapturar = parseInt(prompt (`Ingrese precio del curso ${nombreCapturar}:`));
-    alert (`El curso ${nombreCapturar} con una duración de ${duracionCapturar} y un precio de $${costoCapturar} ha sido cargado con éxito`); 
+    const parrafo = document.createElement('p');
+
+    parrafo.innerHTML = `El curso ${nombreCapturar} con una duración de ${duracionCapturar} y un precio de $${costoCapturar} ha sido cargado con éxito`; 
+    document.body.append(parrafo)
     nuevoCurso = new Curso(nombreCapturar, duracionCapturar, costoCapturar);
     console.log(nuevoCurso);
+    
     agregar();
-    }   
+    } 
+      
 }
 var baseDatos= [];
 function agregar(){ 
